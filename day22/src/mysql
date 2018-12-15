@@ -1,0 +1,27 @@
+1.select count(*) from teacher where tname like '李%';
+2.select count(*) from student where sex='男';   select count(*) from student where sex='女';
+3.select count(*),sname from student group by sname;
+4.select * from student where birthday like '1981%';
+5.select sid,avg(score) from sc group by sid having avg(score)>60;
+6. cid,count(cid) from sc group by cid;
+7.select sid,count(sid) from sc group by sid having count(sid)>=2;
+8.select cid, max(score),min(score) from sc group by cid;
+9.select cid,count(cid) from sc group by cid  order by count(cid) desc,cid asc;
+
+1.select * from emp where extract(year from now())-extract(year from hiredate)>38;
+2 select ename from emp where extract(month from hiredate)=extract(month from now());
+3 select ename from emp where extract(month from hiredate)=extract(month from now())+1;
+4 select ename from emp where extract(year from hiredate)=1980 and extract(month from hiredate)>6;
+5 (1)select ename from emp where length(ename)=4;
+              select ename from emp where char_length(ename)=4;
+  (2)select ename from emp where ename like '____';
+6 select job,min(sal) from emp group by(job);
+7 select extract(month from hiredate),count(ename) from emp where extract(year from hiredate)=1980 group by extract(month from hiredate);
+8 select deptno,max(sal) from emp group by deptno;
+9 select deptno,job,max(sal) from emp group by deptno,job;
+10 select deptno,sum(sal),avg(sal) from emp group by deptno;
+11 select deptno,avg(sal) from emp where (deptno=10) or (deptno=20) group by deptno;
+12 select deptno,avg(sal) from emp group by deptno having avg(sal)>2000;
+13 select job,count(ename) from emp where job='manager';
+14 select * from emp order by sal desc limit 3;
+15 select * from emp order by sal desc limit 4,6;
